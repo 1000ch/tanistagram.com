@@ -1,0 +1,34 @@
+{
+  "name": "tanistagram.com",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:prepare && npm run build:html & npm run build:cname & npm run build:img & npm run build:css & npm run build:js & wait",
+    "build:prepare": "mkdir -p dist/css & mkdir -p dist/js & mkdir -p dist/img & wait",
+    "build:js": "npm run build:js:lib & npm run build:js:app & wait",
+    "build:js:lib": "uglifyjs node_modules/jquery/dist/jquery.min.js > dist/js/jquery.js & uglifyjs node_modules/lightbox2/dist/js/lightbox.min.js > dist/js/lightbox.js & wait",
+    "build:js:app": "uglifyjs src/js/app.js > dist/js/app.js",
+    "build:css": "npm run build:css:lib & npm run build:css:app & wait",
+    "build:css:lib": "csso node_modules/normalize.css/normalize.css > dist/css/normalize.css & csso node_modules/lightbox2/dist/css/lightbox.min.css > dist/css/lightbox.css & wait",
+    "build:css:app": "csso src/css/app.css > dist/css/app.css",
+    "build:img": "cp src/img/*.jpg dist/img",
+    "build:html": "cp src/*.html dist",
+    "build:cname": "cp src/CNAME dist",
+    "watch": "npm run watch:prepare & npm run watch:js & npm run watch:css & browser-sync start --server --files 'dist/**/*' & wait",
+    "watch:prepare": "mkdir -p dist/css & mkdir -p dist/js & wait",
+    "watch:js": "watch 'npm run build:js:app' src/js",
+    "watch:css": "watch 'npm run build:css:app' src/css",
+    "deploy": "npm run build && node deploy.js"
+  },
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "lightbox2": "^2.8.2",
+    "normalize.css": "^4.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "csso": "^1.7.1",
+    "gh-pages": "^0.11.0",
+    "uglify-js": "^2.6.2",
+    "watch": "^0.17.1"
+  }
+}

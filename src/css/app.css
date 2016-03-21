@@ -1,22 +1,86 @@
+body {
+  color: #4b4f54;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+a, a:visited {
+  color: #125688;
+}
+
 .Container {
   margin: 0 auto;
   max-width: 960px;
 }
 
+.Header {
+  padding: 0 20px;
+  border-bottom: solid 1px #edeeee;
+}
+
+.Title {
+  color: #125688;
+  font-size: 24px;
+  font-family: "Noteworthy";
+}
+
+.Aside {
+  padding: 20px 0;
+}
+
+.Main {
+  background-color: #fafafa;
+}
+
+.Footer {
+  background-color: #fafafa;
+}
+
+.Copyright {
+  margin: auto;
+  font-weight: bold;
+}
+
 .Grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  padding: 24px;
 }
 
 .Cell {
-  width: 320px;
-  height: 320px;
   flex-shrink: 0;
+  padding: 12px;
 }
 
 .Cell img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.Avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+  .Grid {
+    padding: 12px;
+  }
+  .Cell {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  .Grid {
+    padding: 0;
+  }
+  .Cell {
+    padding: 3px;
+  }
 }

@@ -5,14 +5,14 @@
     "build": "npm run build:prepare && npm run build:html & npm run build:cname & npm run build:img & npm run build:css & npm run build:js & wait",
     "build:prepare": "mkdir -p dist/css & mkdir -p dist/js & mkdir -p dist/img & wait",
     "build:js": "npm run build:js:lib & npm run build:js:app & wait",
-    "build:js:lib": "uglifyjs node_modules/jquery/dist/jquery.min.js > dist/js/jquery.js & uglifyjs node_modules/lightbox2/dist/js/lightbox.min.js > dist/js/lightbox.js & wait",
+    "build:js:lib": "uglifyjs node_modules/dom-delegate/build/dom-delegate.js > dist/js/dom-delegate.js & wait",
     "build:js:app": "uglifyjs src/js/app.js > dist/js/app.js",
     "build:css": "npm run build:css:lib & npm run build:css:app & wait",
-    "build:css:lib": "csso node_modules/normalize.css/normalize.css > dist/css/normalize.css & csso node_modules/lightbox2/dist/css/lightbox.min.css > dist/css/lightbox.css & csso node_modules/grd/dist/grd.css > dist/css/grd.css & wait",
+    "build:css:lib": "csso node_modules/normalize.css/normalize.css > dist/css/normalize.css & csso node_modules/grd/dist/grd.css > dist/css/grd.css & wait",
     "build:css:app": "csso src/css/app.css > dist/css/app.css",
     "build:img": "cp src/img/*.jpg dist/img",
-    "build:html": "cp src/*.html dist",
-    "build:cname": "cp src/CNAME dist",
+    "build:html": "cp src/*.html dist/",
+    "build:cname": "cp src/CNAME dist/",
     "watch": "npm run watch:prepare & npm run watch:js & npm run watch:css & npm run watch:html & browser-sync start --server --startPath dist --files 'dist/**/*' & wait",
     "watch:prepare": "mkdir -p dist/css & mkdir -p dist/js & wait",
     "watch:js": "watch 'npm run build:js:app' src/js",
@@ -21,9 +21,8 @@
     "deploy": "npm run build && node deploy.js"
   },
   "dependencies": {
+    "dom-delegate": "^2.0.3",
     "grd": "^1.2.3",
-    "jquery": "^2.2.2",
-    "lightbox2": "^2.8.2",
     "normalize.css": "^4.0.0"
   },
   "devDependencies": {

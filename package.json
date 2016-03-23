@@ -11,7 +11,7 @@
     "build:css": "npm run build:css:lib & npm run build:css:app & wait",
     "build:css:lib": "csso node_modules/normalize.css/normalize.css > dist/css/normalize.css & csso node_modules/grd/dist/grd.css > dist/css/grd.css & wait",
     "build:css:app": "csso src/css/app.css > dist/css/app.css",
-    "build:img": "cp src/img/*.jpg dist/img",
+    "build:img": "cp src/img/*.jpg dist/img & node convert.js & wait",
     "build:html": "cp src/*.html dist/",
     "build:cname": "cp src/CNAME dist/",
     "watch": "npm run watch:prepare & npm run watch:js & npm run watch:css & npm run watch:html & browser-sync start --server --startPath dist --files 'dist/**/*' & wait",
@@ -29,6 +29,7 @@
   "devDependencies": {
     "browser-sync": "^2.11.1",
     "csso": "^1.7.1",
+    "cwebp-bin": "^3.1.0",
     "gh-pages": "^0.11.0",
     "uglify-js": "^2.6.2",
     "watch": "^0.17.1"

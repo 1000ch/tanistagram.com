@@ -1,3 +1,9 @@
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('service-worker.js').catch(function(error) {
+    console.error(error);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var backdrop = document.querySelector('#backdrop');
   var image = backdrop.querySelector('img');

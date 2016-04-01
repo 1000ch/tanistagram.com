@@ -1,4 +1,4 @@
-const CACHE_KEY = 'v2';
+const CACHE_KEY = 'v3';
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -53,8 +53,6 @@ self.addEventListener('install', e => {
         '/img/850ea9a6-77a9-446a-947a-96beab28f689.webp',
         '/img/913cc759-0c91-4bf6-846a-3726eab0e868.jpg',
         '/img/913cc759-0c91-4bf6-846a-3726eab0e868.webp',
-        '/img/9baef3d0-c805-4ae9-b60e-0e1af6330a63.jpg',
-        '/img/9baef3d0-c805-4ae9-b60e-0e1af6330a63.webp',
         '/img/9ff2dc60-1f9b-4e61-9d03-809411717eba.jpg',
         '/img/9ff2dc60-1f9b-4e61-9d03-809411717eba.webp',
         '/img/a569cf97-77f8-48da-ad71-56ab894ce6bd.jpg',
@@ -69,14 +67,10 @@ self.addEventListener('install', e => {
         '/img/cc3bbf74-6bd3-40fd-881e-5b246db145b4.webp',
         '/img/d477e695-0039-4a15-85af-213ac2dc59ba.jpg',
         '/img/d477e695-0039-4a15-85af-213ac2dc59ba.webp',
-        '/img/e1bd8e9b-2cd1-4b19-bfd9-449850720f17.jpg',
-        '/img/e1bd8e9b-2cd1-4b19-bfd9-449850720f17.webp',
         '/img/e3245d30-1852-4c21-8b20-6708bbecc044.jpg',
         '/img/e3245d30-1852-4c21-8b20-6708bbecc044.webp',
         '/img/fbe1b264-db7e-4e35-b4e8-80163ebada27.jpg',
-        '/img/fbe1b264-db7e-4e35-b4e8-80163ebada27.webp',
-        '/img/ff95e033-efe1-4bb8-97a9-feaaaa36f70e.jpg',
-        '/img/ff95e033-efe1-4bb8-97a9-feaaaa36f70e.webp'
+        '/img/fbe1b264-db7e-4e35-b4e8-80163ebada27.webp'
       ]);
     }).catch(e => console.error(e))
   );

@@ -35,8 +35,6 @@ self.addEventListener('install', e => {
         '/img/4ba81f9c-d5a5-423f-8911-6578d7e9886f.webp',
         '/img/5425ff6f-a4f0-4223-b656-cc1e9895db1f.jpg',
         '/img/5425ff6f-a4f0-4223-b656-cc1e9895db1f.webp',
-        '/img/5baa3a84-6ee3-400f-bab1-2637e5fbdae1.jpg',
-        '/img/5baa3a84-6ee3-400f-bab1-2637e5fbdae1.webp',
         '/img/67fadce6-297f-48f0-8be4-2dcb709d7909.jpg',
         '/img/67fadce6-297f-48f0-8be4-2dcb709d7909.webp',
         '/img/6e78893d-c969-4b90-94ad-0c123bc131bd.jpg',
@@ -51,8 +49,6 @@ self.addEventListener('install', e => {
         '/img/80573021-1777-4271-b494-9d20d7eb3536.webp',
         '/img/81450afd-2a08-4535-b390-f99a2dad603d.jpg',
         '/img/81450afd-2a08-4535-b390-f99a2dad603d.webp',
-        '/img/823f9b08-da3d-4334-a5d1-cc7096355974.jpg',
-        '/img/823f9b08-da3d-4334-a5d1-cc7096355974.webp',
         '/img/850ea9a6-77a9-446a-947a-96beab28f689.jpg',
         '/img/850ea9a6-77a9-446a-947a-96beab28f689.webp',
         '/img/913cc759-0c91-4bf6-846a-3726eab0e868.jpg',
@@ -79,8 +75,6 @@ self.addEventListener('install', e => {
         '/img/e3245d30-1852-4c21-8b20-6708bbecc044.webp',
         '/img/fbe1b264-db7e-4e35-b4e8-80163ebada27.jpg',
         '/img/fbe1b264-db7e-4e35-b4e8-80163ebada27.webp',
-        '/img/ff400858-1340-4477-90ec-77a64cc96309.jpg',
-        '/img/ff400858-1340-4477-90ec-77a64cc96309.webp',
         '/img/ff95e033-efe1-4bb8-97a9-feaaaa36f70e.jpg',
         '/img/ff95e033-efe1-4bb8-97a9-feaaaa36f70e.webp'
       ]);

@@ -96,9 +96,7 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   e.respondWith(
     caches.open(CACHE_KEY).then(cache => {
-      return cache.match(e.request).then(response => {
-        return response || fetch(e.request);
-      });
+      return cache.match(e.request);
     }).catch(e => console.error(e))
   );
 });

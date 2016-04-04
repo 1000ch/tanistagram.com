@@ -2,7 +2,7 @@
   "name": "tanistagram.com",
   "private": true,
   "scripts": {
-    "build": "npm run build:prepare && npm run build:html & npm run build:cname & npm run build:img & npm run build:css & npm run build:js & wait",
+    "build": "npm run build:prepare && npm run build:html & npm run build:cname & npm run build:manifest & npm run build:img & npm run build:css & npm run build:js & wait",
     "build:prepare": "mkdir -p dist/css & mkdir -p dist/js & mkdir -p dist/img & wait",
     "build:js": "npm run build:js:lib & npm run build:js:app & npm run build:js:sw & wait",
     "build:js:lib": "uglifyjs node_modules/dom-delegate/build/dom-delegate.js > dist/js/dom-delegate.js & wait",
@@ -14,6 +14,7 @@
     "build:img": "cp src/img/*.jpg dist/img & node convert.js & wait",
     "build:html": "cp src/*.html dist/",
     "build:cname": "cp src/CNAME dist/",
+    "build:manifest": "cp src/manifest.json dist/",
     "watch": "npm run watch:prepare & npm run watch:js & npm run watch:css & npm run watch:html & browser-sync start --server --startPath dist --files 'dist/**/*' & wait",
     "watch:prepare": "mkdir -p dist/css & mkdir -p dist/js & wait",
     "watch:js": "watch 'npm run build:js:app' src/js",

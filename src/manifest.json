@@ -1,0 +1,11 @@
+{
+  "name": "Tanistagram",
+  "short_name": "Tanistagram",
+  "icons": [{
+    "src": "img/app-icon.jpg",
+    "sizes": "144x144",
+    "type": "image/jpg"
+  }],
+  "start_url": "https://tanistagram.com/",
+  "display": "standalone"
+}

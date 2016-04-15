@@ -1,4 +1,4 @@
-const CACHE_KEY = 'v5';
+const CACHE_KEY = 'v6';
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -13,6 +13,10 @@ self.addEventListener('install', e => {
         '/css/normalize.css',
         '/img/hiloki.jpg',
         '/img/favicon.jpg',
+        '/img/touch-icon-iphone.jpg',
+        '/img/touch-icon-ipad.jpg',
+        '/img/touch-icon-iphone-retina.jpg',
+        '/img/touch-icon-ipad-retina.jpg',
         '/img/0daeedd2-eaef-4dc6-a833-8f6c9efe1711.jpg',
         '/img/0daeedd2-eaef-4dc6-a833-8f6c9efe1711.webp',
         '/img/1979143d-b8f2-4847-ac2e-cf5c733efd46.jpg',

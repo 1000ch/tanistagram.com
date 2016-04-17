@@ -4,7 +4,8 @@ body {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: #125688;
 }
 
@@ -47,7 +48,7 @@ a, a:visited {
 .Title {
   color: #125688;
   font-size: 24px;
-  font-family: "Noteworthy";
+  font-family: Noteworthy;
 }
 
 .Aside {
@@ -81,6 +82,10 @@ a, a:visited {
   height: 100%;
   object-fit: contain;
   cursor: pointer;
+}
+
+.Grid.Affiliate .Cell {
+  max-width: 160px;
 }
 
 .Avatar {

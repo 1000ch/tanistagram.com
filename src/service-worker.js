@@ -1,4 +1,4 @@
-const CACHE_KEY = '20160528';
+const CACHE_KEY = '20160529';
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -7,7 +7,6 @@ self.addEventListener('install', e => {
         '/',
         '/manifest.json',
         '/js/app.js',
-        '/js/dom-delegate.js',
         '/css/app.css',
         '/css/grd.css',
         '/css/normalize.css',

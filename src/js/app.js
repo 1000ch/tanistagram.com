@@ -5,7 +5,71 @@ if (navigator.serviceWorker) {
 }
 
 import Rx from 'rx';
+import Vue from 'vue';
 import Delegate from 'dom-delegate';
+
+const items = [
+  { id : '0daeedd2' },
+  { id : '1979143d' },
+  { id : '1f71ee22' },
+  { id : '20760476' },
+  { id : '2398a915' },
+  { id : '23e37360' },
+  { id : '2c891c52' },
+  { id : '30522c15' },
+  { id : '3411fa18' },
+  { id : '4474e4e6' },
+  { id : '4ba81f9c' },
+  { id : '5425ff6f' },
+  { id : '67fadce6' },
+  { id : '6e78893d' },
+  { id : '78459acc' },
+  { id : '79b6c9e3' },
+  { id : '7db2f351' },
+  { id : '80573021' },
+  { id : '81450afd' },
+  { id : '850ea9a6' },
+  { id : '913cc759' },
+  { id : '9ff2dc60' },
+  { id : 'a569cf97' },
+  { id : 'ac8330cf' },
+  { id : 'b35b3dad' },
+  { id : 'c356008c' },
+  { id : 'cc3bbf74' },
+  { id : 'd477e695' },
+  { id : 'e3245d30' },
+  { id : 'fbe1b264' }
+];
+
+const affiliates = [
+  {
+    url   : 'https://www.amazon.co.jp/dp/4839956758/?tag=1000ch-22',
+    name  : 'frontend-knowledge',
+    title : 'フロントエンドエンジニアのための現在とこれからの必須知識'
+  }, {
+    url   : 'https://www.amazon.co.jp/dp/4844336355/?tag=1000ch-22',
+    name  : 'css-architecture',
+    title : 'Web制作者のためのCSS設計の教科書 モダンWeb開発に欠かせない「修正しやすいCSS」の設計手法'
+  }, {
+    url   : 'https://www.amazon.co.jp/dp/4774165786/?tag=1000ch-22',
+    name  : 'frontend-engineer',
+    title : 'フロントエンドエンジニア養成読本 [HTML、CSS、JavaScriptの基本から現場で役立つ技術まで満載! ]'
+  }
+];
+
+new Vue({
+  el   : '#container',
+  data : {
+    items : items
+  }
+});
+
+new Vue({
+  el   : '#affiliate',
+  data : {
+    items : affiliates
+  }
+});
 
 Rx.Observable
   .fromEvent(document, 'DOMContentLoaded')

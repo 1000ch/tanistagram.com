@@ -28,7 +28,8 @@
     "dom-delegate": "^2.0.3",
     "grd": "^1.2.3",
     "normalize.css": "^4.0.0",
-    "rx": "^4.1.0"
+    "rx": "^4.1.0",
+    "vue": "^1.0.24"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",

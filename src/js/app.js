@@ -1,78 +1,90 @@
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register('service-worker.js').catch(function(error) {
-    console.error(error);
-  });
+  navigator.serviceWorker
+    .register('service-worker.js')
+    .catch(error => console.error(error));
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  var backdrop = document.querySelector('#backdrop');
-  var image = backdrop.querySelector('img');
+import Rx from 'rx';
+import Delegate from 'dom-delegate';
 
-  backdrop.addEventListener('click', function(e) {
-    if (e.target.tagName.toLowerCase() === 'img') {
-      return;
-    }
+Rx.Observable
+  .fromEvent(document, 'DOMContentLoaded')
+  .subscribe(() => {
+    const backdrop = document.querySelector('#backdrop');
+    const image = backdrop.querySelector('img');
 
-    backdrop.classList.add('Backdrop--hidden');
-    history.pushState(null, null, '#');
-  });
-
-  var container = document.querySelector('#container');
-  var delegate = new Delegate(container);
-  delegate.on('click', 'img', function(e) {
-    backdrop.classList.remove('Backdrop--hidden');
-    image.src = e.target.src;
-    location.hash = e.target.dataset.id;
-  });
-
-  var images = container.querySelectorAll('img');
-  var ids = Array.prototype.map.call(images, function(image) {
-    return image.dataset.id;
-  });
-
-  window.addEventListener('hashchange', function(e) {
-    var targetId = location.hash.replace('#', '');
-    var targetIndex = ids.indexOf(targetId);
-
-    if (targetId !== '' && targetIndex !== -1) {
-      backdrop.classList.remove('Backdrop--hidden');
-      image.dataset.id = images[targetIndex].dataset.id;
-      image.src = images[targetIndex].src;
-    }
-  });
-
-  var KEYCODE_ESC        = 27;
-  var KEYCODE_LEFTARROW  = 37;
-  var KEYCODE_RIGHTARROW = 39;
-  document.addEventListener('keydown', function(e) {
-    if (backdrop.classList.contains('Backdrop--hidden')) {
-      return;
-    }
-
-    var index = ids.indexOf(image.dataset.id);
-
-    switch (e.keyCode) {
-      case KEYCODE_ESC:
+    Rx.Observable
+      .fromEvent(backdrop, 'click')
+      .filter(e => e.target.tagName.toLowerCase() !== 'img')
+      .subscribe(() => {
         backdrop.classList.add('Backdrop--hidden');
         history.pushState(null, null, '#');
-        break;
-      case KEYCODE_LEFTARROW:
-        if (index !== 0) {
-          location.hash = ids[index - 1];
-        }
-        break;
-      case KEYCODE_RIGHTARROW:
-        if (index !== ids.length - 1) {
-          location.hash = ids[index + 1];
-        }
-        break;
+      });
+
+    const container = document.querySelector('#container');
+    const delegate = new Delegate(container);
+
+    Rx.Observable
+      .fromEvent(delegate, 'click')
+      .subscribe(e => {
+        backdrop.classList.remove('Backdrop--hidden');
+        image.src = e.target.src;
+        location.hash = e.target.dataset.id;
+      });
+
+    const images = container.querySelectorAll('img');
+    const ids = Array.prototype.map.call(images, image => image.dataset.id);
+
+    Rx.Observable
+      .fromEvent(window, 'hashchange')
+      .filter(e => {
+        const targetId = location.hash.replace('#', '');
+        const targetIndex = ids.indexOf(targetId);
+        return targetId !== '' && targetIndex !== -1;
+      })
+      .subscribe(e => {
+        backdrop.classList.remove('Backdrop--hidden');
+        const targetId = location.hash.replace('#', '');
+        const targetIndex = ids.indexOf(targetId);
+        image.dataset.id = images[targetIndex].dataset.id;
+        image.src = images[targetIndex].src;
+      });
+
+    const KEYCODE_ESC        = 27;
+    const KEYCODE_LEFTARROW  = 37;
+    const KEYCODE_RIGHTARROW = 39;
+
+    const keydown = Rx.Observable
+      .fromEvent(document, 'keydown')
+      .filter(e => !backdrop.classList.contains('Backdrop--hidden'));
+
+    keydown
+      .filter(e => e.keyCode === KEYCODE_ESC)
+      .subscribe(() => {
+        backdrop.classList.add('Backdrop--hidden');
+        history.pushState(null, null, '#');
+      });
+
+    keydown
+      .filter(e => e.keyCode === KEYCODE_LEFTARROW)
+      .filter(() => ids.indexOf(image.dataset.id) !== 0)
+      .subscribe(() => {
+        const index = ids.indexOf(image.dataset.id);
+        location.hash = ids[index - 1];
+      });
+
+    keydown
+      .filter(e => e.keyCode === KEYCODE_RIGHTARROW)
+      .filter(() => ids.indexOf(image.dataset.id) !== ids.length - 1)
+      .subscribe(() => {
+        const index = ids.indexOf(image.dataset.id);
+        location.hash = ids[index + 1];
+      });
+
+    const targetId = location.hash.replace('#', '');
+    for (let image of images) {
+      if (image.dataset.id === targetId) {
+        image.click();
+      }
     }
   });
-
-  var targetId = location.hash.replace('#', '');
-  for (var i = 0, l = images.length; i < l; i++) {
-    if (images[i].dataset.id === targetId) {
-      images[i].click();
-    }
-  }
-});

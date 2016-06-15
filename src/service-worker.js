@@ -1,4 +1,4 @@
-const CACHE_KEY = '20160529';
+const CACHE_KEY = '20160615';
 
 self.addEventListener('install', e => {
   e.waitUntil(

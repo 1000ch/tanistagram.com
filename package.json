@@ -13,7 +13,7 @@
     "build:css": "npm run build:css:lib & npm run build:css:app && wait",
     "build:css:lib": "csso node_modules/normalize.css/normalize.css > dist/css/normalize.css & csso node_modules/grd/dist/grd.css > dist/css/grd.css && wait",
     "build:css:app": "csso src/css/app.css > dist/css/app.css",
-    "build:img": "cp src/img/*.jpg dist/img & cp src/img/app/*.jpg dist/img/app & cp src/img/tani/*.jpg dist/img/tani & cp src/img/book/*.jpg dist/img/book & node convert.js && wait",
+    "build:img": "cp src/img/*.jpg dist/img & cp src/img/app/*.png dist/img/app & cp src/img/tani/*.jpg dist/img/tani & cp src/img/book/*.jpg dist/img/book & node convert.js && wait",
     "build:html": "cp src/*.html dist/",
     "build:cname": "cp src/CNAME dist/",
     "build:manifest": "cp src/manifest.json dist/",

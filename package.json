@@ -2,11 +2,12 @@
   "name": "tanistagram.com",
   "private": true,
   "scripts": {
-    "build": "npm run build:js && npm run build:css && npm run build:img && npm run build:copy",
+    "build": "npm run build:js && npm run build:css && npm run build:img && npm run build:copy && npm run build:webcomponents",
     "build:js": "gulp js",
     "build:css": "gulp css",
     "build:img": "gulp img & gulp cwebp && wait",
     "build:copy": "gulp copy",
+    "build:webcomponents": "gulp webcomponents",
     "watch": "gulp watch",
     "deploy": "npm run build && node deploy.js"
   },
@@ -14,8 +15,7 @@
     "dom-delegate": "^2.0.3",
     "grd": "^1.2.3",
     "normalize.css": "^4.0.0",
-    "rx": "^4.1.0",
-    "vue": "^1.0.24"
+    "rx": "^4.1.0"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -31,14 +31,5 @@
     "gulp-uglify": "^1.5.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ],
-    "plugins": [
-      "add-module-exports",
-      "transform-class-properties"
-    ]
   }
 }

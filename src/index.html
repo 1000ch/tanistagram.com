@@ -26,6 +26,8 @@
     <link rel="apple-touch-icon" sizes="76x76" href="img/touch-icon-ipad.jpg">
     <link rel="apple-touch-icon" sizes="120x120" href="img/touch-icon-iphone-retina.jpg">
     <link rel="apple-touch-icon" sizes="152x152" href="img/touch-icon-ipad-retina.jpg">
+    <link rel="import" href="webcomponents/tani-image.html">
+    <link rel="import" href="webcomponents/book-affiliate.html">
   </head>
   <body>
     <aside id="backdrop" class="Backdrop Backdrop--hidden">
@@ -57,25 +59,12 @@
             </div>
           </div>
         </aside>
-        <div id="container" class="Grid -center -stretch Gallery">
-          <div class="Cell -4of12" v-for="item in items">
-            <picture>
-              <source srcset="img/tani/{{ item.id }}.webp" type="image/webp">
-              <img data-id="{{ item.id }}" src="img/tani/{{ item.id }}.jpg">
-            </picture>
-          </div>
-        </div>
+        <div id="image-container" class="Grid -center -stretch Gallery"></div>
       </div>
     </main>
     <footer class="Footer">
       <div class="Container">
-        <div id="affiliate" class="Grid -center -middle Affiliate">
-          <div class="Cell -4of12" v-for="item in items">
-            <a href="{{ item.url }}" target="_blank">
-              <img src="img/book/{{ item.name }}.jpg" alt="{{ item.title }}" style="border: none;" />
-            </a>
-          </div>
-        </div>
+        <div id="affiliate-container" class="Grid -center -middle Affiliate"></div>
         <div class="Grid -center">
           <div class="Cell">
             <div class="Copyright">© 2016 TANISTAGRAM developed by <a href="https://twitter.com/1000ch">@1000ch</a></div>

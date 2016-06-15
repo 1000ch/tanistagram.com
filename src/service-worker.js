@@ -1,4 +1,4 @@
-const CACHE_KEY = '20160615';
+const CACHE_KEY = '20160616';
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -10,6 +10,8 @@ self.addEventListener('install', e => {
         '/css/app.css',
         '/css/grd.css',
         '/css/normalize.css',
+        '/webcomponents/book-affiliate.html',
+        '/webcomponents/tani-image.html',
         '/img/hiloki.jpg',
         '/img/favicon.jpg',
         '/img/touch-icon-iphone.jpg',

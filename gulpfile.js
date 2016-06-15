@@ -26,6 +26,10 @@ const FILE_JS = [
   'src/js/app.js'
 ];
 
+const FILE_WEBCOMPONENTS = [
+  'src/webcomponents/*.html'
+];
+
 gulp.task('copy', () => {
   return gulp.src(FILE_COPY)
     .pipe(gulp.dest('dist'));
@@ -71,6 +75,11 @@ gulp.task('js', () => {
     .pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('webcomponents', () => {
+  return gulp.src(FILE_WEBCOMPONENTS)
+    .pipe(gulp.dest('dist/webcomponents'));
+});
+
 gulp.task('watch', () => {
   browserSync.init({
     server : {
@@ -83,4 +92,5 @@ gulp.task('watch', () => {
   gulp.watch(FILE_CWEBP, ['cwebp']).on('change', browserSync.reload);
   gulp.watch(FILE_CSS, ['css']).on('change', browserSync.reload);
   gulp.watch(FILE_JS, ['js']).on('change', browserSync.reload);
+  gulp.watch(FILE_WEBCOMPONENTS, ['webcomponents']).on('change', browserSync.reload);
 });

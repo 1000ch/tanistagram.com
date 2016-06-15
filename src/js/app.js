@@ -5,10 +5,9 @@ if (navigator.serviceWorker) {
 }
 
 import Rx from 'rx';
-import Vue from 'vue';
 import Delegate from 'dom-delegate';
 
-const items = [
+const tanis = [
   { id : '0daeedd2' },
   { id : '1979143d' },
   { id : '1f71ee22' },
@@ -57,25 +56,36 @@ const affiliates = [
   }
 ];
 
-new Vue({
-  el   : '#container',
-  data : {
-    items : items
-  }
-});
-
-new Vue({
-  el   : '#affiliate',
-  data : {
-    items : affiliates
-  }
-});
-
 Rx.Observable
   .fromEvent(document, 'DOMContentLoaded')
   .subscribe(() => {
+    const imageContainer = document.querySelector('#image-container');
+    const affiliateContainer = document.querySelector('#affiliate-container');
     const backdrop = document.querySelector('#backdrop');
+    const ids = tanis.map(tani => tani.id);
+
+    for (let tani of tanis) {
+      let cell = document.createElement('div');
+      cell.className = 'Cell -4of12';
+      let item = document.createElement('tani-image');
+      item.id = tani.id;
+      cell.appendChild(item);
+      imageContainer.appendChild(cell);
+    }
+
+    for (let affiliate of affiliates) {
+      let cell = document.createElement('div');
+      cell.className = 'Cell -4of12';
+      let item = document.createElement('book-affiliate');
+      item.setAttribute('url', affiliate.url);
+      item.setAttribute('name', affiliate.name);
+      item.setAttribute('title', affiliate.title);
+      cell.appendChild(item);
+      affiliateContainer.appendChild(cell);
+    }
+
     const image = backdrop.querySelector('img');
+    const images = imageContainer.querySelectorAll('tani-image');
 
     Rx.Observable
       .fromEvent(backdrop, 'click')
@@ -85,19 +95,15 @@ Rx.Observable
         history.pushState(null, null, '#');
       });
 
-    const container = document.querySelector('#container');
-    const delegate = new Delegate(container);
+    const delegate = new Delegate(imageContainer);
 
     Rx.Observable
       .fromEvent(delegate, 'click')
       .subscribe(e => {
         backdrop.classList.remove('Backdrop--hidden');
         image.src = e.target.src;
-        location.hash = e.target.dataset.id;
+        location.hash = e.target.id;
       });
-
-    const images = container.querySelectorAll('img');
-    const ids = Array.prototype.map.call(images, image => image.dataset.id);
 
     Rx.Observable
       .fromEvent(window, 'hashchange')
@@ -110,12 +116,12 @@ Rx.Observable
         backdrop.classList.remove('Backdrop--hidden');
         const targetId = location.hash.replace('#', '');
         const targetIndex = ids.indexOf(targetId);
-        image.dataset.id = images[targetIndex].dataset.id;
+        image.dataset.id = images[targetIndex].id;
         image.src = images[targetIndex].src;
       });
 
-    const KEYCODE_ESC        = 27;
-    const KEYCODE_LEFTARROW  = 37;
+    const KEYCODE_ESC = 27;
+    const KEYCODE_LEFTARROW = 37;
     const KEYCODE_RIGHTARROW = 39;
 
     const keydown = Rx.Observable
@@ -147,7 +153,7 @@ Rx.Observable
 
     const targetId = location.hash.replace('#', '');
     for (let image of images) {
-      if (image.dataset.id === targetId) {
+      if (image.id === targetId) {
         image.click();
       }
     }

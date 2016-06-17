@@ -1,4 +1,4 @@
-const CACHE_KEY = '20160616';
+const CACHE_KEY = '20160617';
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -18,6 +18,11 @@ self.addEventListener('install', e => {
         '/img/touch-icon-ipad.jpg',
         '/img/touch-icon-iphone-retina.jpg',
         '/img/touch-icon-ipad-retina.jpg',
+        '/img/app/128x128.png',
+        '/img/app/144x144.png',
+        '/img/app/152x152.png',
+        '/img/app/192x192.png',
+        '/img/app/384x384.png',
         '/img/book/css-architecture.jpg',
         '/img/book/frontend-engineer.jpg',
         '/img/book/frontend-knowledge.jpg',
@@ -104,7 +109,11 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   e.respondWith(
     caches.open(CACHE_KEY).then(cache => {
-      return cache.match(e.request);
+      return cache.match(e.request).then(response => {
+        return response || fetch(e.request.clone()).then(response => {
+          cache.put(e.request, response.clone());
+        });
+      });
     }).catch(e => console.error(e))
   );
 });

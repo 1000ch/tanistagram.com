@@ -107,14 +107,16 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  const url = new URL(e.request.url);
+  if (url.protocol !== 'https:') {
+    return;
+  }
+
   e.respondWith(
     caches.open(CACHE_KEY).then(cache => {
       return cache.match(e.request).then(response => {
         return response || fetch(e.request.clone()).then(response => {
-          const url = new URL(e.request.url);
-          if (url.protocol === 'https:') {
-            cache.put(e.request, response.clone());
-          }
+          cache.put(e.request, response.clone());
         });
       });
     }).catch(e => console.error(e))

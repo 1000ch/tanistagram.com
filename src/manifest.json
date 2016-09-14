@@ -1,6 +1,8 @@
 {
   "name": "Tanistagram",
   "short_name": "Tanistagram",
+  "background_color": "white",
+  "theme_color": "white",
   "icons": [{
     "src": "img/app/128x128.png",
     "sizes": "128x128",

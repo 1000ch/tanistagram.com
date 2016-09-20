@@ -5,10 +5,12 @@
       height: 100%;
       object-fit: contain;
       cursor: pointer;
+      border: none;
+      outline: none;
     }
   </style>
   <a target="_blank">
-    <img style="border: none;" />
+    <img>
   </a>
 </template>
 
@@ -18,10 +20,6 @@
   const ownerDocument = currentScript.ownerDocument;
 
   class BookAffiliate extends HTMLElement {
-    constructor() {
-      super();
-    }
-
     get url() {
       return this.getAttribute('url');
     }
@@ -30,24 +28,22 @@
       return `img/book/${this.getAttribute('name')}.jpg`;
     }
 
-    get title() {
-      return this.getAttribute('title');
-    }
+    constructor() {
+      super();
 
-    createdCallback() {
       this.attachShadow({ mode : 'open' });
       const template = ownerDocument.querySelector('#book-affiliate-template');
-      const clone = document.importNode(template.content, true);
+      const clone = template.content.cloneNode(true);
       this.shadowRoot.appendChild(clone);
     }
 
-    attachedCallback() {
+    connectedCallback() {
       this.shadowRoot.querySelector('a').href = this.url;
       this.shadowRoot.querySelector('img').src = this.src;
       this.shadowRoot.querySelector('img').alt = this.title;
     }
   }
 
-  document.registerElement('book-affiliate', BookAffiliate);
+  customElements.define('book-affiliate', BookAffiliate);
 }
 </script>

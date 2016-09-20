@@ -19,10 +19,6 @@
   const ownerDocument = currentScript.ownerDocument;
 
   class TaniImage extends HTMLElement {
-    constructor() {
-      super();
-    }
-
     get src() {
       return `img/tani/${this.id}.jpg`;
     }
@@ -31,19 +27,21 @@
       return `img/tani/${this.id}.webp`;
     }
 
-    createdCallback() {
+    constructor() {
+      super();
+
       this.attachShadow({ mode : 'open' });
       const template = ownerDocument.querySelector('#tani-image-template');
-      const clone = document.importNode(template.content, true);
+      const clone = template.content.cloneNode(true);
       this.shadowRoot.appendChild(clone);
     }
 
-    attachedCallback() {
+    connectedCallback() {
       this.shadowRoot.querySelector('img').src = this.src;
       this.shadowRoot.querySelector('source').src = this.srcset;
     }
   }
 
-  document.registerElement('tani-image', TaniImage);
+  customElements.define('tani-image', TaniImage);
 }
 </script>

@@ -1,4 +1,4 @@
-const CACHE_KEY = '20160914';
+const CACHE_KEY = '20161221';
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -85,7 +85,25 @@ self.addEventListener('install', e => {
         '/img/tani/e3245d30.jpg',
         '/img/tani/e3245d30.webp',
         '/img/tani/fbe1b264.jpg',
-        '/img/tani/fbe1b264.webp'
+        '/img/tani/fbe1b264.webp',
+        '/img/tani/05cd4125.jpg',
+        '/img/tani/05cd4125.webp',
+        '/img/tani/fe6bdd1c.jpg',
+        '/img/tani/fe6bdd1c.webp',
+        '/img/tani/3f501125.jpg',
+        '/img/tani/3f501125.webp',
+        '/img/tani/a2b80a00.jpg',
+        '/img/tani/a2b80a00.webp',
+        '/img/tani/d488eda9.jpg',
+        '/img/tani/d488eda9.webp',
+        '/img/tani/dceec204.jpg',
+        '/img/tani/dceec204.webp',
+        '/img/tani/89337651.jpg',
+        '/img/tani/89337651.webp',
+        '/img/tani/eccdd96f.jpg',
+        '/img/tani/eccdd96f.webp',
+        '/img/tani/22d3079a.jpg',
+        '/img/tani/22d3079a.webp'
       ]);
     }).catch(e => console.error(e))
   );

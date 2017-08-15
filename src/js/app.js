@@ -46,7 +46,10 @@ const tanis = [
   { id : 'dceec204' },
   { id : '89337651' },
   { id : 'eccdd96f' },
-  { id : '22d3079a' }
+  { id : '22d3079a' },
+  { id : '78d2f3a9' },
+  { id : '95825320' },
+  { id : 'b573c491' }
 ];
 
 const affiliates = [

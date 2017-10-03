@@ -1,13 +1,13 @@
-const CACHE_NAME = '20170801';
+const CACHE_NAME = '20171001';
 const CACHE_FILES = [
   '/',
   '/manifest.json',
-  '/js/app.js',
-  '/css/app.css',
-  '/css/grd.css',
-  '/css/normalize.css',
-  '/webcomponents/book-affiliate.html',
-  '/webcomponents/tani-image.html',
+  '/app.js',
+  '/book-affiliate.js',
+  '/tani-image.js',
+  '/app.css',
+  '/grd.css',
+  '/normalize.css',
   '/img/hiloki.jpg',
   '/img/favicon.jpg',
   '/img/touch-icon-iphone.jpg',

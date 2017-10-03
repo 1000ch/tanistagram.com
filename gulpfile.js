@@ -5,7 +5,9 @@ const FILE_COPY = [
   'src/CNAME',
   'src/index.html',
   'src/manifest.json',
-  'src/service-worker.js'
+  'src/service-worker.js',
+  'src/tani-image.js',
+  'src/book-affiliate.js'
 ];
 
 const FILE_IMG = [
@@ -18,16 +20,12 @@ const FILE_CWEBP = [
 
 const FILE_CSS = [
   'node_modules/normalize.css/normalize.css',
-  'node_modules/grd/dist/grd.css',
-  'src/css/*.css'
+  'node_modules/grd/grd.css',
+  'src/app.css'
 ];
 
 const FILE_JS = [
-  'src/js/app.js'
-];
-
-const FILE_WEBCOMPONENTS = [
-  'src/webcomponents/*.html'
+  'src/app.js'
 ];
 
 gulp.task('copy', () => {
@@ -53,31 +51,7 @@ gulp.task('css', () => {
 
   return gulp.src(FILE_CSS)
     .pipe(csso())
-    .pipe(gulp.dest('dist/css'));
-});
-
-gulp.task('js', () => {
-  const browserify = require('browserify');
-  const babelify = require('babelify');
-  const source = require('vinyl-source-stream');
-  const buffer = require('vinyl-buffer');
-  const uglify = require('gulp-uglify');
-
-  return browserify(FILE_JS)
-    .transform('babelify', {
-      presets : ['es2015'],
-      plugins : ['add-module-exports', 'transform-class-properties']
-    })
-    .bundle()
-    .pipe(source('app.js'))
-    .pipe(buffer())
-    .pipe(uglify())
-    .pipe(gulp.dest('dist/js'));
-});
-
-gulp.task('webcomponents', () => {
-  return gulp.src(FILE_WEBCOMPONENTS)
-    .pipe(gulp.dest('dist/webcomponents'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('watch', () => {
@@ -92,5 +66,4 @@ gulp.task('watch', () => {
   gulp.watch(FILE_CWEBP, ['cwebp']).on('change', browserSync.reload);
   gulp.watch(FILE_CSS, ['css']).on('change', browserSync.reload);
   gulp.watch(FILE_JS, ['js']).on('change', browserSync.reload);
-  gulp.watch(FILE_WEBCOMPONENTS, ['webcomponents']).on('change', browserSync.reload);
 });

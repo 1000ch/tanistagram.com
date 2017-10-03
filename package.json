@@ -2,12 +2,14 @@
   "name": "tanistagram.com",
   "private": true,
   "scripts": {
-    "build": "npm run build:js && npm run build:css && npm run build:img && npm run build:copy && npm run build:webcomponents",
-    "build:js": "gulp js",
-    "build:css": "gulp css",
+    "build": "mkdir -p dist && npm run build:js && npm run build:css && npm run build:img && npm run build:copy",
+    "build:js": "browserify src/app.js -t [ babelify ] | uglifyjs > dist/app.js",
+    "build:css": "npm run build:css:app && npm run build:css:normalize && npm run build:css:grd",
+    "build:css:app": "csso src/app.css > dist/app.css",
+    "build:css:grd": "csso node_modules/grd/grd.css > dist/grd.css",
+    "build:css:normalize": "csso node_modules/normalize.css/normalize.css > dist/normalize.css",
     "build:img": "gulp img & gulp cwebp && wait",
     "build:copy": "gulp copy",
-    "build:webcomponents": "gulp webcomponents",
     "watch": "gulp watch",
     "deploy": "npm run build && node deploy.js"
   },
@@ -18,18 +20,14 @@
     "rx": "^4.1.0"
   },
   "devDependencies": {
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-class-properties": "^6.9.0",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babelify": "^7.3.0",
     "browser-sync": "^2.11.1",
     "browserify": "^14.1.0",
+    "csso-cli": "^1.1.0",
     "gh-pages": "^0.12.0",
     "gulp": "^3.9.1",
-    "gulp-csso": "^2.0.0",
     "gulp-cwebp": "^2.2.1",
-    "gulp-uglify": "^2.1.2",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "uglify-es": "^3.1.3"
   }
 }

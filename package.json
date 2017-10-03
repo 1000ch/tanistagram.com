@@ -2,13 +2,13 @@
   "name": "tanistagram.com",
   "private": true,
   "scripts": {
-    "build": "mkdir -p dist && npm run build:js && npm run build:css && npm run build:img && npm run build:copy",
+    "build": "mkdir -p dist && run-p build:js build:css build:img build:copy",
     "build:js": "browserify src/app.js -t [ babelify ] | uglifyjs > dist/app.js",
-    "build:css": "npm run build:css:app && npm run build:css:normalize && npm run build:css:grd",
+    "build:css": "run-p build:css:app build:css:grd build:css:normalize",
     "build:css:app": "csso src/app.css > dist/app.css",
     "build:css:grd": "csso node_modules/grd/grd.css > dist/grd.css",
     "build:css:normalize": "csso node_modules/normalize.css/normalize.css > dist/normalize.css",
-    "build:img": "gulp img & gulp cwebp && wait",
+    "build:img": "gulp img && gulp cwebp",
     "build:copy": "gulp copy",
     "watch": "gulp watch",
     "deploy": "npm run build && node deploy.js"
@@ -28,6 +28,7 @@
     "gh-pages": "^0.12.0",
     "gulp": "^3.9.1",
     "gulp-cwebp": "^2.2.1",
+    "npm-run-all": "^4.1.1",
     "uglify-es": "^3.1.3"
   }
 }

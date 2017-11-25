@@ -1,4 +1,4 @@
-const CACHE_NAME = '20171001';
+const CACHE_NAME = '20171125';
 const CACHE_FILES = [
   '/',
   '/manifest.json',
@@ -20,8 +20,8 @@ const CACHE_FILES = [
   '/img/app/192x192.png',
   '/img/app/384x384.png',
   '/img/book/css-architecture.jpg',
-  '/img/book/frontend-engineer.jpg',
-  '/img/book/frontend-knowledge.jpg',
+  '/img/book/inclusive-design.jpg',
+  '/img/book/webperf-guide.jpg',
   '/img/tani/0daeedd2',
   '/img/tani/1979143d',
   '/img/tani/1f71ee22',

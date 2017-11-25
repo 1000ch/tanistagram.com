@@ -54,17 +54,17 @@ const tanis = [
 
 const affiliates = [
   {
-    url   : 'https://www.amazon.co.jp/dp/4839956758/?tag=1000ch-22',
-    name  : 'frontend-knowledge',
-    title : 'フロントエンドエンジニアのための現在とこれからの必須知識'
+    url   : 'https://www.amazon.co.jp/dp/477419400X/?tag=1000ch-22',
+    name  : 'webperf-guide',
+    title : '超速! Webページ速度改善ガイド ── 使いやすさは「速さ」から始まる'
   }, {
     url   : 'https://www.amazon.co.jp/dp/4844336355/?tag=1000ch-22',
     name  : 'css-architecture',
     title : 'Web制作者のためのCSS設計の教科書 モダンWeb開発に欠かせない「修正しやすいCSS」の設計手法'
   }, {
-    url   : 'https://www.amazon.co.jp/dp/4774165786/?tag=1000ch-22',
-    name  : 'frontend-engineer',
-    title : 'フロントエンドエンジニア養成読本 [HTML、CSS、JavaScriptの基本から現場で役立つ技術まで満載! ]'
+    url   : 'https://www.amazon.co.jp/gp/product/4862463878/?tag=1000ch-22',
+    name  : 'inclusive-design',
+    title : 'インクルーシブHTML+CSS & JavaScript 多様なユーザーニーズに応えるフロントエンドデザインパターン'
   }
 ];
 

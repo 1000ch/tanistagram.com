@@ -8,6 +8,15 @@ import Rx from 'rx';
 import Delegate from 'dom-delegate';
 
 const tanis = [
+  { id : '78d2f3a9' },
+  { id : '95825320' },
+  { id : 'b573c491' },
+  { id : '89337651' },
+  { id : 'eccdd96f' },
+  { id : '22d3079a' },
+  { id : 'a2b80a00' },
+  { id : 'd488eda9' },
+  { id : 'dceec204' },
   { id : '0daeedd2' },
   { id : '1979143d' },
   { id : '1f71ee22' },
@@ -40,16 +49,7 @@ const tanis = [
   { id : 'fbe1b264' },
   { id : '05cd4125' },
   { id : 'fe6bdd1c' },
-  { id : '3f501125' },
-  { id : 'a2b80a00' },
-  { id : 'd488eda9' },
-  { id : 'dceec204' },
-  { id : '89337651' },
-  { id : 'eccdd96f' },
-  { id : '22d3079a' },
-  { id : '78d2f3a9' },
-  { id : '95825320' },
-  { id : 'b573c491' }
+  { id : '3f501125' }
 ];
 
 const affiliates = [

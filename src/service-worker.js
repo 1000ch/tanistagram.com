@@ -1,4 +1,4 @@
-const CACHE_NAME = '20171125';
+const CACHE_NAME = '20180310';
 const CACHE_FILES = [
   '/',
   '/manifest.json',
@@ -22,6 +22,18 @@ const CACHE_FILES = [
   '/img/book/css-architecture.jpg',
   '/img/book/inclusive-design.jpg',
   '/img/book/webperf-guide.jpg',
+  '/img/tani/315ab5de',
+  '/img/tani/c93648cg',
+  '/img/tani/e89a432a',
+  '/img/tani/78d2f3a9',
+  '/img/tani/95825320',
+  '/img/tani/b573c491',
+  '/img/tani/89337651',
+  '/img/tani/eccdd96f',
+  '/img/tani/22d3079a',
+  '/img/tani/a2b80a00',
+  '/img/tani/d488eda9',
+  '/img/tani/dceec204',
   '/img/tani/0daeedd2',
   '/img/tani/1979143d',
   '/img/tani/1f71ee22',
@@ -54,16 +66,7 @@ const CACHE_FILES = [
   '/img/tani/fbe1b264',
   '/img/tani/05cd4125',
   '/img/tani/fe6bdd1c',
-  '/img/tani/3f501125',
-  '/img/tani/a2b80a00',
-  '/img/tani/d488eda9',
-  '/img/tani/dceec204',
-  '/img/tani/89337651',
-  '/img/tani/eccdd96f',
-  '/img/tani/22d3079a',
-  '/img/tani/78d2f3a9',
-  '/img/tani/95825320',
-  '/img/tani/b573c491'
+  '/img/tani/3f501125'
 ];
 
 self.addEventListener('install', e => {

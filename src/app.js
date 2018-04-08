@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   imageContainer.addEventListener('click', e => {
     backdrop.classList.remove('Backdrop--hidden');
     image.src = e.target.src;
-    location.hash = e.target.id;
+    history.pushState(null, null, `#${e.target.id}`);
   });
 
   window.addEventListener('hashchange', () => {

@@ -1,4 +1,4 @@
-const CACHE_NAME = '20180310';
+const CACHE_NAME = '20180430';
 const CACHE_FILES = [
   '/',
   '/manifest.json',

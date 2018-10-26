@@ -5,6 +5,7 @@ if (navigator.serviceWorker) {
 }
 
 const tanis = [
+  { id : '42bedc59' },
   { id : '249e8a4g' },
   { id : 'bb223109' },
   { id : '315ab5de' },

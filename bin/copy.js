@@ -21,7 +21,7 @@ function copy(src, dest) {
     'src/book-affiliate.js'
   ]).then(files => {
     for (const file of files) {
-      copy(file, file.replace('src', 'dist'));
+      copy(file, file.replace('src', 'public'));
     }
   });
 })();

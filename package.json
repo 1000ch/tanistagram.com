@@ -2,15 +2,14 @@
   "name": "tanistagram.com",
   "private": true,
   "scripts": {
-    "build": "mkdir -p dist && run-p build:js build:css build:img build:copy",
-    "build:js": "uglifyjs src/app.js > dist/app.js",
+    "build": "mkdirp public && run-p build:js build:css build:img build:copy",
+    "build:js": "terser --output public/app.js src/app.js",
     "build:css": "run-p build:css:app build:css:grd build:css:normalize",
-    "build:css:app": "csso src/app.css > dist/app.css",
-    "build:css:grd": "csso node_modules/grd/grd.css > dist/grd.css",
-    "build:css:normalize": "csso node_modules/normalize.css/normalize.css > dist/normalize.css",
-    "build:img": "node bin/img",
-    "build:copy": "node bin/copy.js",
-    "deploy": "npm run build && node deploy.js"
+    "build:css:app": "csso --input src/app.css --output public/app.css",
+    "build:css:grd": "csso --input node_modules/grd/grd.css --output public/grd.css",
+    "build:css:normalize": "csso --input node_modules/normalize.css/normalize.css --output public/normalize.css",
+    "build:img": "node bin/img.js",
+    "build:copy": "node bin/copy.js"
   },
   "dependencies": {
     "grd": "^1.3.0",
@@ -19,10 +18,9 @@
   "devDependencies": {
     "csso-cli": "^1.1.0",
     "cwebp-bin": "^4.0.0",
-    "gh-pages": "^0.12.0",
     "globby": "^7.1.1",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.1.1",
-    "uglify-es": "^3.1.3"
+    "terser": "^3.10.3"
   }
 }

@@ -32,7 +32,7 @@ function convert(src, dest) {
     'src/img/**/*.{jpg,png}'
   ]).then(files => {
     for (const file of files) {
-      copy(file, file.replace('src', 'dist'));
+      copy(file, file.replace('src', 'public'));
     }
   });
 
@@ -40,7 +40,7 @@ function convert(src, dest) {
     'src/img/tani/*.jpg'
   ]).then(files => {
     return Promise.all(files.map(file => {
-      const dest = file.replace('src', 'dist').replace('jpg', 'webp');
+      const dest = file.replace('src', 'public').replace('jpg', 'webp');
       return convert(file, dest);
     }));
   });

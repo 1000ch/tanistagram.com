@@ -1,4 +1,4 @@
-const CACHE_NAME = '20180525';
+const CACHE_NAME = '20191230';
 const CACHE_FILES = [
   '/',
   '/manifest.json',
@@ -10,15 +10,6 @@ const CACHE_FILES = [
   '/normalize.css',
   '/img/hiloki.jpg',
   '/img/favicon.jpg',
-  '/img/touch-icon-iphone.jpg',
-  '/img/touch-icon-ipad.jpg',
-  '/img/touch-icon-iphone-retina.jpg',
-  '/img/touch-icon-ipad-retina.jpg',
-  '/img/app/128x128.png',
-  '/img/app/144x144.png',
-  '/img/app/152x152.png',
-  '/img/app/192x192.png',
-  '/img/app/384x384.png',
   '/img/book/css-architecture.jpg',
   '/img/book/inclusive-design.jpg',
   '/img/book/webperf-guide.jpg',

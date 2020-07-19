@@ -1,4 +1,4 @@
-const CACHE_NAME = '20191230';
+const CACHE_NAME = '20200719';
 const CACHE_FILES = [
   '/',
   '/manifest.json',
@@ -13,6 +13,9 @@ const CACHE_FILES = [
   '/img/book/css-architecture.jpg',
   '/img/book/inclusive-design.jpg',
   '/img/book/webperf-guide.jpg',
+  '/img/tani/43c9d9ae',
+  '/img/tani/fe042516',
+  '/img/tani/032705b6',
   '/img/tani/42bedc59',
   '/img/tani/249e8a4g',
   '/img/tani/bb223109',
